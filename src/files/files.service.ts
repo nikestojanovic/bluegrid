@@ -17,13 +17,7 @@ export class FilesService {
       const response = await axios.get(this.externalEndpoint);
       const data = response.data.items;
 
-    //   Logging the response data to verify its structure
-    //   this.logger.debug('Fetched data:', data);
-
-     // Adjust this part based on the actual structure
-        //   if (!data.urls || !Array.isArray(data.urls)) {
-        //     throw new Error('Expected data to be an array of URLs');
-        //   }
+      if (!Array.isArray(data)) throw new Error('Expected data to be an array of URLs')
   
       return data;
 
